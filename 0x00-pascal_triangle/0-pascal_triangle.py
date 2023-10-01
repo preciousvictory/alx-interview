@@ -3,6 +3,7 @@
 0-pascal_triangle
 """
 
+
 def pascal_triangle(n):
     """pascal_triangle"""
     if n <= 0:
@@ -14,14 +15,13 @@ def pascal_triangle(n):
     elif n == 2:
         pascal_tr.append([1])
         pascal_tr.append([1, 1])
-    else:        
+    else:
         pascal_tr.append([1])
         pascal_tr.append([1, 1])
-        # tri_list = []            
         for v in range(3, n + 1):
             tri_list = []
             cursor = 0
-            
+
             tri_list.insert(1, 1)
             tri_list.insert(n - 1, 1)
             for p in range(v - 2):
@@ -29,6 +29,6 @@ def pascal_triangle(n):
                 value = prev_list[cursor] + prev_list[cursor + 1]
                 tri_list.insert(p + 1, value)
                 cursor += 1
-                prev_list = tri_list                
+                prev_list = tri_list
             pascal_tr.append(tri_list)
     return pascal_tr
