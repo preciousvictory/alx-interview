@@ -17,7 +17,13 @@ def canUnlockAll(boxes):
     You are collecting a group of keys from the boxes you have keys for.
     After you can no longer collect more keys, check if  all the boxes opened?
 
-    True if all boxes are opened and False if not"""
+    True if all boxes are opened and False if not
+    """
+     if (type(boxes)) is not list:
+        return False
+    elif (len(boxes)) == 0:
+        return False
+
     unlocked = [0]
 
     for index, box in enumerate(boxes):
