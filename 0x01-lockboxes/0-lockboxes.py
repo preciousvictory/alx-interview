@@ -37,8 +37,6 @@ def canUnlockAll(boxes):
                         if j not in unlocked:
                             unlocked.append(j)
 
-    print(unlocked)
-
     if len(unlocked) == len(boxes):
         return True
     return False
