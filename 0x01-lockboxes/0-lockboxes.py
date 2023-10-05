@@ -34,11 +34,6 @@ def canUnlockAll(boxes):
                 if i not in unlocked:
                     unlocked.append(i)
 
-    check_unlocked = False
-    for i in range(len(boxes)):
-        if i not in unlocked:
-            check_unlocked = False
-        else:
-            check_unlocked = True
-
-    return check_unlocked
+    if len(unlocked) == len(boxes):
+        return True
+    return False
