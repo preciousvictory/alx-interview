@@ -19,7 +19,7 @@ def canUnlockAll(boxes):
 
     True if all boxes are opened and False if not
     """
-     if (type(boxes)) is not list:
+    if (type(boxes)) is not list:
         return False
     elif (len(boxes)) == 0:
         return False
