@@ -20,9 +20,11 @@ def canUnlockAll(boxes):
     True if all boxes are opened and False if not"""
     unlocked = [0]
 
-    for index, value in enumerate(boxes):
+    for index, box in enumerate(boxes):
+        if not box:
+            continue
         if index in unlocked:
-            for i in value:
+            for i in box:
                 if i not in unlocked:
                     unlocked.append(i)
 
