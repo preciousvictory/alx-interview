@@ -25,6 +25,7 @@ def canUnlockAll(boxes):
         return False
 
     unlocked = [0]
+    c = 0
 
     for index, box in enumerate(boxes):
         if not box:
@@ -33,15 +34,25 @@ def canUnlockAll(boxes):
             for i in box:
                 if i not in unlocked:
                     unlocked.append(i)
-                    for j in boxes[i]:
-                        if j not in unlocked:
-                            unlocked.append(j)
+                    try:
+                        for j in boxes[i]:
+                            if j not in unlocked:
+                                unlocked.append(j)
+                    except IndexError:
+                        continue
 
-    check_unlocked = False
+    '''check_unlocked = False
     for i in range(len(boxes)):
         if i not in unlocked:
             check_unlocked = False
         else:
             check_unlocked = True
+    '''
+    index = [x for x in range(len(boxes))]
+    for i in unlocked:
+        if i not in index:
+            unlocked.remove(i)
 
-    return check_unlocked
+    if len(unlocked) + c != len(boxes):
+        return False
+    return True
