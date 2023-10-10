@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-'''0-minoperations
+#!/usr/bin/python3
+'''0-minoperations file
 '''
 
 
