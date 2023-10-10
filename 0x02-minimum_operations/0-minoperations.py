@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-'''0-minoperations'''
+'''0-minoperations
+'''
 
 
 def minOperations(n):
     '''minOperations
-    fewest number of operations needed to result in exactly n H characters'''
+    fewest number of operations needed to result in exactly n H characters
+    '''
     if not isinstance(n, int):
         return 0
 
