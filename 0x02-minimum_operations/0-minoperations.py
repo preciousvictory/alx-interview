@@ -18,15 +18,13 @@ def minOperations(n):
             copy = text_file
             text_file += copy
             count += 2
-        '''if the number of characters in the file remaining to reach exactly
-        n characters and if number of characters remaining divisible by the
-        number of characters already in the file
-        '''
         elif n - text_file > 0 and (n - text_file) % text_file == 0:
+            # copy all and paste
             copy = text_file
             text_file += copy
             count += 2
         elif text_file > 0:
+            # paste
             text_file += copy
             count += 1
 
