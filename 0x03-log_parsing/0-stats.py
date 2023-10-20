@@ -10,7 +10,7 @@ def print_stats(filesize, code_count):
     print(f'File size: {filesize}')
     for code, value in code_count.items():
         if value > 0:
-            print(f'{code}: {value}')
+            print('{}: {}'.format(code, value))
 
 
 if __name__ == '__main__':
@@ -28,13 +28,17 @@ if __name__ == '__main__':
             if len(data) != 9:
                 continue
 
-            status_code = data[-2]
-            if status_code in codes:
-                code_count[status_code] += 1
-            filesize += int(data[-1])
+            try:
+                status_code = data[-2]
+                if status_code in codes:
+                    code_count[status_code] += 1
+                filesize += int(data[-1])
+            except BaseException:
+                pass
 
             if count % 10 == 0:
                 print_stats(filesize, code_count)
+        print_stats(filesize, code_count)
     except KeyboardInterrupt:
         print_stats(filesize, code_count)
         raise
