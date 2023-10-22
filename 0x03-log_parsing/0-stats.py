@@ -18,6 +18,7 @@ if __name__ == '__main__':
     code_count = {x: 0 for x in codes}
     count, filesize = 0, 0
 
+
     try:
         for line in sys.stdin:
             count += 1
@@ -38,7 +39,8 @@ if __name__ == '__main__':
 
             if count % 10 == 0:
                 print_stats(filesize, code_count)
-        print_stats(filesize, code_count)
     except KeyboardInterrupt:
         print_stats(filesize, code_count)
         raise
+    finally:
+        print_stats(filesize, code_count
