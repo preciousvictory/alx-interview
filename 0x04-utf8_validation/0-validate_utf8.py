@@ -11,7 +11,7 @@ def validUTF8(data):
     L = 0
 
     for i in range(no_bytes):
-        if i >> 8 != 0 or type(data[i]) != int or data[i] > 0x10FFFF or data[i] < 0:
+        if type(data[i]) != int or data[i] > 0x10FFFF or data[i] < 0:
             return False
         # Byte 1 where first code point is U+0000 and last is U+007F
         elif data[i] <= 0x007F:
