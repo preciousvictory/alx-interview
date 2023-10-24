@@ -14,27 +14,29 @@ def validUTF8(data):
         if type(data[i]) != int or data[i] > 0x10FFFF or data[i] < 0:
             return False
         # Byte 1 where first code point is U+0000 and last is U+007F
-        elif data[i] <= 0x007F:
+        elif data[i] <= 0x7F:
             if data[i] >> 8 == 0:
                 valid = True
+            else:
+                return False
         # Byte 2 where first code point is U+0080 and last is U+07FF
-        elif data[i] >= 0x0080 and data[i] <= 0x07FF:
+        elif data[i] & 0b11100000 == 0b11000000:
             if data[i] >> 5 != 110:
                 return False
             else:
                 L = 1
-                if data[i + L] >> 6 != 0b10:
+                if data[i + L] & 0b11000000 == 0b10000000:
                     return False
                 else:
                     valid = True
-        # Byte 2 where first code point is U+0800 and last is U+FFFF
+        # Byte 3 where first code point is U+0800 and last is U+FFFF
         elif data[i] & 0b11110000 == 0b11100000:
             if data[i] >> 4 != 1110:
                 return False
             else:
                 L = 2
                 for i in L:
-                    if data[i + L] >> 6 != 0b10:
+                    if data[i + L] & 0b11000000 == 0b10000000:
                         return False
                     else:
                         valid = True
@@ -46,11 +48,11 @@ def validUTF8(data):
             else:
                 L = 3
                 for i in L:
-                    if data[i + L] >> 6 != 0b10:
+                    if data[i + L] & 0b11000000 == 0b10000000:
                         return False
                     else:
                         valid = True
                 i += L
         else:
             return False
-    return valid
+    return True
