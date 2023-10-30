@@ -25,30 +25,39 @@ def validUTF8(data):
                 return False
             else:
                 L = 3
-                for a in range(1, L + 1):
-                    if data[i + a] & 0b11000000 == 0b10000000:
-                        valid = True
-                    else:
-                        return False
-                i += L
+                try:
+                    for a in range(1, L + 1):
+                        if data[i + a] & 0b11000000 == 0b10000000:
+                            valid = True
+                        else:
+                            return False
+                    i += L
+                except IndexError:
+                    return False
         # Byte 3 where first code point is U+0800 and last is U+FFFF
         elif data[i] & 0b11110000 == 0b11100000:
             if data[i] >> 4 != 0b1110:
                 return False
             else:
                 L = 2
-                for a in range(1, L + 1):
-                    if data[i + L] & 0b11000000 == 0b10000000:
-                        valid = True
-                    else:
-                        return False
-                i += L
+                try:
+                    for a in range(1, L + 1):
+                        if data[i + L] & 0b11000000 == 0b10000000:
+                            valid = True
+                        else:
+                            return False
+                    i += L
+                except IndexError:
+                    return False
         # Byte 2 where first code point is U+0080 and last is U+07FF
         elif data[i] & 0b11100000 == 0b11000000:
-            L = 1
-            if data[i + L] & 0b11000000 == 0b10000000:
-                valid = True
-            else:
-                return False
-            i += 1
+            try:
+                L = 1
+                if data[i + L] & 0b11000000 == 0b10000000:
+                    valid = True
+                else:
+                    return False
+                i += 1
+            except IndexError:
+                    return False
     return True
