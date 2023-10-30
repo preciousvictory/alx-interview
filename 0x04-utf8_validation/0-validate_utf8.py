@@ -10,6 +10,9 @@ def validUTF8(data):
     no_bytes = len(data)
     L = 0
 
+    if len(data) == 0:
+        return True
+
     for i in range(no_bytes):
         if type(data[i]) != int or data[i] > 0x10FFFF or data[i] < 0:
             return False

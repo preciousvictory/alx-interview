@@ -28,3 +28,6 @@ print(validUTF8(data))
 
 data = [250, 145, 145, 145, 145]
 print(validUTF8(data))
+
+data = []
+print(validUTF8(data))
