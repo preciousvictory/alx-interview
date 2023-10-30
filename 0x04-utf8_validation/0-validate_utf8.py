@@ -21,7 +21,7 @@ def validUTF8(data):
                 return False
         # Byte 2 where first code point is U+0080 and last is U+07FF
         elif data[i] & 0b11100000 == 0b11000000:
-            if data[i] >> 5 != 110:
+            if data[i] >> 5 != 0b110:
                 return False
             else:
                 L = 1
@@ -47,11 +47,11 @@ def validUTF8(data):
                 return False
             else:
                 L = 3
-                for i in L:
+                for i in range(L):
                     if data[i + L] & 0b11000000 == 0b10000000:
-                        return False
-                    else:
                         valid = True
+                    else:
+                        return False
                 i += L
         else:
             return False
