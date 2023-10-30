@@ -25,34 +25,30 @@ def validUTF8(data):
                 return False
             else:
                 L = 3
-                for i in range(L):
-                    if data[i + L] & 0b11000000 == 0b10000000:
+                for a in range(1, L + 1):
+                    if data[i + a] & 0b11000000 == 0b10000000:
                         valid = True
                     else:
                         return False
                 i += L
-        else:
-            return False
         # Byte 3 where first code point is U+0800 and last is U+FFFF
         elif data[i] & 0b11110000 == 0b11100000:
-            if data[i] >> 4 != 1110:
+            if data[i] >> 4 != 0b1110:
                 return False
             else:
                 L = 2
-                for i in L:
+                for a in range(1, L + 1):
                     if data[i + L] & 0b11000000 == 0b10000000:
-                        return False
-                    else:
                         valid = True
+                    else:
+                        return False
                 i += L
         # Byte 2 where first code point is U+0080 and last is U+07FF
         elif data[i] & 0b11100000 == 0b11000000:
-            if data[i] >> 5 != 0b110:
-                return False
+            L = 1
+            if data[i + L] & 0b11000000 == 0b10000000:
+                valid = True
             else:
-                L = 1
-                if data[i + L] & 0b11000000 == 0b10000000:
-                    return False
-                else:
-                    valid = True
+                return False
+            i += 1
     return True
