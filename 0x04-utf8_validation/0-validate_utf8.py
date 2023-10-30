@@ -60,4 +60,4 @@ def validUTF8(data):
                 i += 1
             except IndexError:
                     return False
-    return True
+    return valid
