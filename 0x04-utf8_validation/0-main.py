@@ -20,4 +20,17 @@ print(validUTF8(data))
 data = [240, 188, 128, 167]
 print(validUTF8(data))
 
+<<<<<<< HEAD
+=======
+data = [235, 140]
+print(validUTF8(data))
+
+data = [345, 467]
+print(validUTF8(data))
+
+data = [250, 145, 145, 145, 145]
+print(validUTF8(data))
+
+data = []
+>>>>>>> bb7d085ab41def283d1a7d36e4e96bd731b4e6b8
 print(validUTF8(data))
