@@ -35,8 +35,8 @@ def del_invalid(board, N, r, c):
             break
         col -= 1
         board[i][col] = '#'
-    
-    #check right down diagonal
+
+    # check right down diagonal
     col = c
     for i in range(r + 1, N):
         col += 1
@@ -44,7 +44,7 @@ def del_invalid(board, N, r, c):
             break
         board[i][col] = '#'
 
-    #check left down diagonal
+    # check left down diagonal
     col = c
     for i in range(r + 1, N):
         if col == 0:
@@ -81,17 +81,16 @@ def valid_queen(board, N, start):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print('Usage: nqueens N')
-        exit (1)
-        
+        exit(1)
     try:
         N = int(sys.argv[1])
     except ValueError:
         print('N must be a number')
-        exit (1)
+        exit(1)
 
     if N < 4:
         print('N must be at least 4')
-        exit (1)
+        exit(1)
 
     for i in range(1, N - 1):
         # initialize board
