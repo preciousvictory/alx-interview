@@ -35,7 +35,7 @@ def validUTF8(data):
                 return False
             else:
                 L = 2
-                for i in L:
+                for i in range(L):
                     if data[i + L] & 0b11000000 == 0b10000000:
                         return False
                     else:
@@ -47,8 +47,9 @@ def validUTF8(data):
                 return False
             else:
                 L = 3
-                for i in L:
+                for i in range(L):
                     if data[i + L] & 0b11000000 == 0b10000000:
+                        print(data[i + L])
                         return False
                     else:
                         valid = True
