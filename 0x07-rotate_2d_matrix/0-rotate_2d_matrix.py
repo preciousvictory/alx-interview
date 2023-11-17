@@ -14,9 +14,7 @@ def rotate_2d_matrix(matrix):
         c = 0
         for col in row:
             new_r = c % (n + 1)
-            new_c = r + n
-            if new_c > n:
-                new_c %= n
+            new_c = n - r
             matrix[new_r][new_c] = col
             c += 1
         r += 1
