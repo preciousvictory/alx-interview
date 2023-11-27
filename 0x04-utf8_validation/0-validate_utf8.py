@@ -43,6 +43,30 @@ def validUTF8(data):
                 return False
             else:
                 L = 2
+<<<<<<< HEAD
+                for i in range(L):
+                    if data[i + L] & 0b11000000 == 0b10000000:
+                        return False
+                    else:
+                        valid = True
+                i += L
+        # Byte 4 - first code point is U+10000 and last is U+10FFFF
+        elif data[i] & 0b11111000 == 0b11110000:
+            if data[i] >> 3 != 0b11110:
+                return False
+            else:
+                L = 3
+                for i in range(L):
+                    if data[i + L] & 0b11000000 == 0b10000000:
+                        print(data[i + L])
+                        return False
+                    else:
+                        valid = True
+                i += L
+        else:
+            return False
+    return True
+=======
                 try:
                     for a in range(1, L + 1):
                         if data[i + L] & 0b11000000 == 0b10000000:
@@ -64,3 +88,4 @@ def validUTF8(data):
             except IndexError:
                 return False
     return valid
+>>>>>>> bb7d085ab41def283d1a7d36e4e96bd731b4e6b8
