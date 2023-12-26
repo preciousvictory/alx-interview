@@ -3,7 +3,7 @@ const request = require('request');
 const filmID = process.argv[2];
 
 if (process.argv.length > 2) {
-  request(`'https://swapi-api.hbtn.io/api'/films/${process.argv[2]}/`, (err, _, body) => {
+  request(`'https://swapi-api.hbtn.io/api'/films/${filmID}/`, (err, _, body) => {
     if (err) {
       console.log(err);
     }
