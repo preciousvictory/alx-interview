@@ -17,4 +17,4 @@ async function starwarsCharacters (filmId) {
   }
 }
 
-starwarsCharacters(filmID);
+starwarsCharacters(process.argv[2]);
