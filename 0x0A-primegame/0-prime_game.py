@@ -86,5 +86,7 @@ def isWinner(x, nums):
 
     if M > B:
         return 'Maria'
-    else:
+    elif B > M:
         return 'Ben'
+    else:
+        return None
