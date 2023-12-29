@@ -56,17 +56,14 @@ def isWinner(x, nums):
 
             pick = n[0]
             for i in n:
-                print('-', i)
                 if isPrimeNo(i):
                     pick = i
                     break
-            print('pick', pick, n)
 
             for i in n:
                 if i == pick or i % pick == 0:
                     n.remove(i)
 
-            print('p', player)
             win = player
 
             if len(n) != 1:
@@ -79,7 +76,6 @@ def isWinner(x, nums):
         else:
             winner[rounds] = players[win]
 
-    print(winner)
     M = 0
     B = 0
     for key, value in winner.items():
