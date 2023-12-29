@@ -43,7 +43,6 @@ def island_perimeter(grid):
                     perimeter += 1
 
                 try:
-                    print(i,j)
                     # check top
                     if grid[i - 1][j] == 0:
                         perimeter += 1
