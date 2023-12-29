@@ -41,17 +41,20 @@ def island_perimeter(grid):
                 if j == cols - 1:
                     perimeter += 1
 
-                #check top
-                if  grid[i - 1][j] == 0:
-                    perimeter += 1
-                # check bottom
-                if grid[i + 1][j] == 0:
-                    perimeter += 1
-                # check left
-                if grid[i][j - 1] == 0:
-                    perimeter += 1
-                # check right
-                if grid[i][j + 1] == 0:
-                    perimeter += 1
+                try:
+                    # check top
+                    if grid[i - 1][j] == 0:
+                        perimeter += 1
+                    # check bottom
+                    if grid[i + 1][j] == 0:
+                        perimeter += 1
+                    # check left
+                    if grid[i][j - 1] == 0:
+                        perimeter += 1
+                    # check right
+                    if grid[i][j + 1] == 0:
+                        perimeter += 1
+                except IndexError:
+                    pass
 
     return perimeter
