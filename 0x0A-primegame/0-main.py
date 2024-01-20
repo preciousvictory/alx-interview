@@ -10,3 +10,9 @@ print("Winner: {}".format(isWinner(10, [5, 5, 5, 5, 5, 2, 2, 2, 2, 2])))
 print("Winner: {}".format(isWinner(6, [1, 1, 0, 0, 1, 8])))
 print("Winner: {}".format(isWinner(0, [0])))
 print("Winner: {}".format(isWinner(-1, [10])))
+
+nums = [0] * 10000
+for i in range(10000):
+    nums[i] = i
+
+print("Winner: {}".format(isWinner(10000, nums)))
